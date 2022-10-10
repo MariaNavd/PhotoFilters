@@ -180,7 +180,7 @@ namespace PhotoFilter
         private void submit_Click(object sender, EventArgs e)
         {
             structElem = new int[dataGridView1.RowCount, dataGridView1.ColumnCount];
-            StreamWriter sw = new StreamWriter("C:\\Users\\m.navdaeva\\Documents\\Инженерная графика\\arr.txt");
+            //StreamWriter sw = new StreamWriter("C:\\Users\\m.navdaeva\\Documents\\Инженерная графика\\arr.txt");
 
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
@@ -193,7 +193,7 @@ namespace PhotoFilter
                 //sw.Write("\n");
             }
 
-            sw.Close();
+            //sw.Close();
             mathematicalMorphologyToolStripMenuItem.Enabled = true;
         }
 

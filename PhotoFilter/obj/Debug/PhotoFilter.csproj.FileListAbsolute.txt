@@ -19,3 +19,13 @@ C:\Users\m.navdaeva\Documents\Инженерная графика\PhotoFilter\Ph
 C:\Users\m.navdaeva\Documents\Инженерная графика\PhotoFilter\PhotoFilter\obj\Debug\PhotoFilter.csproj.CoreCompileInputs.cache
 C:\Users\m.navdaeva\Documents\Инженерная графика\PhotoFilter\PhotoFilter\obj\Debug\PhotoFilter.exe
 C:\Users\m.navdaeva\Documents\Инженерная графика\PhotoFilter\PhotoFilter\obj\Debug\PhotoFilter.pdb
+C:\Users\Мария\Documents\PhotoFilters\PhotoFilter\bin\Debug\PhotoFilter.exe.config
+C:\Users\Мария\Documents\PhotoFilters\PhotoFilter\bin\Debug\PhotoFilter.exe
+C:\Users\Мария\Documents\PhotoFilters\PhotoFilter\bin\Debug\PhotoFilter.pdb
+C:\Users\Мария\Documents\PhotoFilters\PhotoFilter\obj\Debug\PhotoFilter.csproj.AssemblyReference.cache
+C:\Users\Мария\Documents\PhotoFilters\PhotoFilter\obj\Debug\PhotoFilter.Form1.resources
+C:\Users\Мария\Documents\PhotoFilters\PhotoFilter\obj\Debug\PhotoFilter.Properties.Resources.resources
+C:\Users\Мария\Documents\PhotoFilters\PhotoFilter\obj\Debug\PhotoFilter.csproj.GenerateResource.cache
+C:\Users\Мария\Documents\PhotoFilters\PhotoFilter\obj\Debug\PhotoFilter.csproj.CoreCompileInputs.cache
+C:\Users\Мария\Documents\PhotoFilters\PhotoFilter\obj\Debug\PhotoFilter.exe
+C:\Users\Мария\Documents\PhotoFilters\PhotoFilter\obj\Debug\PhotoFilter.pdb
