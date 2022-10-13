@@ -9,10 +9,6 @@ namespace PhotoFilter
 {
     internal class Erosion : MathematicalMorphology
     {
-        public Erosion()
-        {
-            type = "dilation";
-        }
         protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y, int[,] structElem = null)
         {
             bool pix = false;

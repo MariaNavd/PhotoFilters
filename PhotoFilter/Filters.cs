@@ -22,7 +22,7 @@ namespace PhotoFilter
                 for (int j = 0; j < sourceImage.Height; j++)
                 {
                     if (structElem == null)
-                        resultImage.SetPixel(i, j, calculateNewPixelColor(sourceImage, i, j));
+                        resultImage.SetPixel(i, j, calculateNewPixelColor(sourceImage, i, j, null));
                     else
                         resultImage.SetPixel(i, j, calculateNewPixelColor(sourceImage, i, j, structElem));
                 }

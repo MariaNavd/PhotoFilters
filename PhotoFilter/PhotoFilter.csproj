@@ -52,17 +52,21 @@
     <Compile Include="Dilation.cs" />
     <Compile Include="Erosion.cs" />
     <Compile Include="Filters.cs" />
+    <Compile Include="FindDiff.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GaussianFilter.cs" />
     <Compile Include="GlassEffectFilter.cs" />
     <Compile Include="GreyWorldFilter.cs" />
     <Compile Include="InvertFilter.cs" />
+    <Compile Include="LinearStretchFilter.cs" />
     <Compile Include="MathematicalMorphology.cs" />
     <Compile Include="MatrixFilter.cs" />
+    <Compile Include="MedianFilter.cs" />
     <Compile Include="MotionBlurFilter.cs" />
     <Compile Include="PerfectReflectionFilter.cs" />
     <Compile Include="PrewittFilter.cs" />

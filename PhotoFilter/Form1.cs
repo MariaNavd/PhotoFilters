@@ -17,7 +17,6 @@ namespace PhotoFilter
     {
         Bitmap image;
         int[,] structElem;
-        protected int iterations = 1;
         public Form1()
         {
             InitializeComponent();
@@ -45,8 +44,7 @@ namespace PhotoFilter
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            Bitmap newImage = image;
-            Bitmap oldImage = image;
+            Bitmap newImage = image, oldImage = image;
             List<Filters> filtersList = e.Argument as List<Filters>;
             
             foreach (Filters filter in filtersList)
@@ -54,6 +52,7 @@ namespace PhotoFilter
                 newImage = filter.processImage(oldImage, backgroundWorker1, structElem);
                 oldImage = newImage;
             }
+
             //Bitmap newImage = ((Filters)e.Argument).processImage(image, backgroundWorker1, structElem);
             if (backgroundWorker1.CancellationPending != true)
                 image = newImage;
@@ -99,7 +98,7 @@ namespace PhotoFilter
 
         private void brightnessToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            List<Filters> filtersList = new List<Filters>() { new BrightnessFilter(30) };
+            List<Filters> filtersList = new List<Filters>() { new BrightnessFilter(40) };
             backgroundWorker1.RunWorkerAsync(filtersList);
         }
 
@@ -170,31 +169,27 @@ namespace PhotoFilter
             int columnsCount;
             if (int.TryParse(columns.Text, out columnsCount))
                 if (columnsCount > 0)
-                {
                     dataGridView1.ColumnCount = columnsCount;
-                    //foreach (DataGridViewColumn column in dataGridView1.Columns)
-                       // column.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                }
         }
 
         private void submit_Click(object sender, EventArgs e)
         {
             structElem = new int[dataGridView1.RowCount, dataGridView1.ColumnCount];
-            StreamWriter sw = new StreamWriter("C:\\Users\\m.navdaeva\\Documents\\Инженерная графика\\arr.txt");
-
+            
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
                 for (int j = 0; j < dataGridView1.Rows[i].Cells.Count; j++)
                 {
                     int.TryParse(dataGridView1.Rows[i].Cells[j].Value.ToString(),
                             out structElem[i, j]);
-                    //sw.Write(structElem[i, j] + " ");
+                    //if (structElem[i, j] == 0)
+                    //    dataGridView1.Rows[i].Cells[j].Style.BackColor = Color.Black;
+                    //dataGridView1.Rows[i].Cells[j].Value = "";
                 }
-                //sw.Write("\n");
-            }
 
-            sw.Close();
             mathematicalMorphologyToolStripMenuItem.Enabled = true;
+            dataGridView1.Enabled = false;
+            rows.Enabled = false;
+            columns.Enabled = false;
         }
 
         private void reset_Click(object sender, EventArgs e)
@@ -202,6 +197,10 @@ namespace PhotoFilter
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 for (int j = 0; j < dataGridView1.Rows[i].Cells.Count; j++)
                     dataGridView1.Rows[i].Cells[j].Value = "";
+
+            dataGridView1.Enabled = true;
+            rows.Enabled = true;
+            columns.Enabled = true;
         }
 
         private void upload_Click(object sender, EventArgs e)
@@ -274,6 +273,46 @@ namespace PhotoFilter
         {
             List<Filters> filtersList = new List<Filters>() { new GreyWorldFilter(image) };
             backgroundWorker1.RunWorkerAsync(filtersList);
+        }
+
+        private void medianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<Filters> filtersList = new List<Filters>() { new MedianFilter(3) };
+            backgroundWorker1.RunWorkerAsync(filtersList);
+        }
+
+        private void gaussianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<Filters> filtersList = new List<Filters>() { new GaussianFilter() };
+            backgroundWorker1.RunWorkerAsync(filtersList);
+        }
+
+        private void whiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<Filters> filtersList = new List<Filters>() { new Erosion(),
+                new Dilation(), new FindDiff(image, 1) };
+            backgroundWorker1.RunWorkerAsync(filtersList);
+        }
+
+        private void blackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<Filters> filtersList = new List<Filters>() { new Dilation(),
+                new Erosion(), new FindDiff(image, -1) };
+            backgroundWorker1.RunWorkerAsync(filtersList);
+        }
+
+        private void linearStretchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<Filters> filtersList = new List<Filters>() { new LinearStretchFilter(image) };
+            backgroundWorker1.RunWorkerAsync(filtersList);
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sf = new SaveFileDialog();
+            sf.ShowDialog();
+            Bitmap saved = new Bitmap(pictureBox1.Image);
+            saved.Save(sf.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
         }
     }
 }

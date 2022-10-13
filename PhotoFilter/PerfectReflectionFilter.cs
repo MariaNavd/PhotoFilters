@@ -27,8 +27,10 @@ namespace PhotoFilter
         protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y, int[,] structElem = null)
         {
             Color sourceColor = sourceImage.GetPixel(x, y);
-            Color resultColor = Color.FromArgb(sourceColor.R * 255 / rMax,
-                sourceColor.G * 255 / gMax, sourceColor.B * 255 / bMax);
+            Color resultColor = Color.FromArgb(
+                Clamp(sourceColor.R * 255 / rMax, 0, 255),
+                Clamp(sourceColor.G * 255 / gMax, 0, 255),
+                Clamp(sourceColor.B * 255 / bMax, 0, 255));
             return resultColor;
         }
     }

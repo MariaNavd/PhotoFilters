@@ -9,10 +9,6 @@ namespace PhotoFilter
 {
     internal class Dilation : MathematicalMorphology
     {
-        public Dilation()
-        {
-            type = "dilation";
-        }
         protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y, int[,] structElem = null)
         {
             bool pix = false;

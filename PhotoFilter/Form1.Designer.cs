@@ -40,9 +40,10 @@ namespace PhotoFilter
             this.blackAndWhiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sepiaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.brightnessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.glassEffectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wavesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rotationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.perfectReflectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.greyWorldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matrixFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sharpnessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageBordersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,11 +53,15 @@ namespace PhotoFilter
             this.blurToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.classicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.motionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gaussianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.medianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mathematicalMorphologyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dilationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.erosionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topHatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.whiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button1 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -69,8 +74,9 @@ namespace PhotoFilter
             this.submit = new System.Windows.Forms.Button();
             this.reset = new System.Windows.Forms.Button();
             this.upload = new System.Windows.Forms.Button();
-            this.perfectReflectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.greyWorldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linearStretchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -96,14 +102,15 @@ namespace PhotoFilter
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1812, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(1712, 33);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem});
+            this.openToolStripMenuItem,
+            this.saveToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
             this.fileToolStripMenuItem.Text = "File";
@@ -111,7 +118,7 @@ namespace PhotoFilter
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(158, 34);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -122,7 +129,7 @@ namespace PhotoFilter
             this.matrixFilterToolStripMenuItem,
             this.mathematicalMorphologyToolStripMenuItem});
             this.processesToolStripMenuItem.Name = "processesToolStripMenuItem";
-            this.processesToolStripMenuItem.Size = new System.Drawing.Size(113, 32);
+            this.processesToolStripMenuItem.Size = new System.Drawing.Size(113, 29);
             this.processesToolStripMenuItem.Text = "Processing";
             // 
             // pointFilterToolStripMenuItem
@@ -133,11 +140,11 @@ namespace PhotoFilter
             this.blackAndWhiteToolStripMenuItem,
             this.sepiaToolStripMenuItem,
             this.brightnessToolStripMenuItem,
-            this.glassEffectToolStripMenuItem,
             this.wavesToolStripMenuItem,
             this.rotationToolStripMenuItem,
             this.perfectReflectionToolStripMenuItem,
-            this.greyWorldToolStripMenuItem});
+            this.greyWorldToolStripMenuItem,
+            this.linearStretchToolStripMenuItem});
             this.pointFilterToolStripMenuItem.Name = "pointFilterToolStripMenuItem";
             this.pointFilterToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.pointFilterToolStripMenuItem.Text = "Point Filter";
@@ -153,7 +160,7 @@ namespace PhotoFilter
             // 
             this.shadesOfGreyToolStripMenuItem.Name = "shadesOfGreyToolStripMenuItem";
             this.shadesOfGreyToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.shadesOfGreyToolStripMenuItem.Text = "Shades of Grey";
+            this.shadesOfGreyToolStripMenuItem.Text = "Grey Scaling";
             this.shadesOfGreyToolStripMenuItem.Click += new System.EventHandler(this.shadesOfGreyToolStripMenuItem_Click);
             // 
             // blackAndWhiteToolStripMenuItem
@@ -177,13 +184,6 @@ namespace PhotoFilter
             this.brightnessToolStripMenuItem.Text = "Brightness";
             this.brightnessToolStripMenuItem.Click += new System.EventHandler(this.brightnessToolStripMenuItem_Click);
             // 
-            // glassEffectToolStripMenuItem
-            // 
-            this.glassEffectToolStripMenuItem.Name = "glassEffectToolStripMenuItem";
-            this.glassEffectToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.glassEffectToolStripMenuItem.Text = "Glass Effect";
-            this.glassEffectToolStripMenuItem.Click += new System.EventHandler(this.glassEffectToolStripMenuItem_Click);
-            // 
             // wavesToolStripMenuItem
             // 
             this.wavesToolStripMenuItem.Name = "wavesToolStripMenuItem";
@@ -198,12 +198,27 @@ namespace PhotoFilter
             this.rotationToolStripMenuItem.Text = "Rotation";
             this.rotationToolStripMenuItem.Click += new System.EventHandler(this.rotationToolStripMenuItem_Click);
             // 
+            // perfectReflectionToolStripMenuItem
+            // 
+            this.perfectReflectionToolStripMenuItem.Name = "perfectReflectionToolStripMenuItem";
+            this.perfectReflectionToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.perfectReflectionToolStripMenuItem.Text = "Perfect Reflection";
+            this.perfectReflectionToolStripMenuItem.Click += new System.EventHandler(this.perfectReflectionToolStripMenuItem_Click);
+            // 
+            // greyWorldToolStripMenuItem
+            // 
+            this.greyWorldToolStripMenuItem.Name = "greyWorldToolStripMenuItem";
+            this.greyWorldToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.greyWorldToolStripMenuItem.Text = "Grey World";
+            this.greyWorldToolStripMenuItem.Click += new System.EventHandler(this.greyWorldToolStripMenuItem_Click);
+            // 
             // matrixFilterToolStripMenuItem
             // 
             this.matrixFilterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sharpnessToolStripMenuItem,
             this.imageBordersToolStripMenuItem,
-            this.blurToolStripMenuItem});
+            this.blurToolStripMenuItem,
+            this.medianToolStripMenuItem});
             this.matrixFilterToolStripMenuItem.Name = "matrixFilterToolStripMenuItem";
             this.matrixFilterToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
             this.matrixFilterToolStripMenuItem.Text = "Matrix Filter";
@@ -211,7 +226,7 @@ namespace PhotoFilter
             // sharpnessToolStripMenuItem
             // 
             this.sharpnessToolStripMenuItem.Name = "sharpnessToolStripMenuItem";
-            this.sharpnessToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+            this.sharpnessToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.sharpnessToolStripMenuItem.Text = "Sharpness";
             this.sharpnessToolStripMenuItem.Click += new System.EventHandler(this.sharpnessToolStripMenuItem_Click);
             // 
@@ -222,27 +237,27 @@ namespace PhotoFilter
             this.prewittToolStripMenuItem,
             this.scharrToolStripMenuItem});
             this.imageBordersToolStripMenuItem.Name = "imageBordersToolStripMenuItem";
-            this.imageBordersToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+            this.imageBordersToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.imageBordersToolStripMenuItem.Text = "Image borders";
             // 
             // sobelToolStripMenuItem1
             // 
             this.sobelToolStripMenuItem1.Name = "sobelToolStripMenuItem1";
-            this.sobelToolStripMenuItem1.Size = new System.Drawing.Size(168, 34);
+            this.sobelToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
             this.sobelToolStripMenuItem1.Text = "Sobel";
             this.sobelToolStripMenuItem1.Click += new System.EventHandler(this.sobelToolStripMenuItem1_Click);
             // 
             // prewittToolStripMenuItem
             // 
             this.prewittToolStripMenuItem.Name = "prewittToolStripMenuItem";
-            this.prewittToolStripMenuItem.Size = new System.Drawing.Size(168, 34);
+            this.prewittToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.prewittToolStripMenuItem.Text = "Prewitt";
             this.prewittToolStripMenuItem.Click += new System.EventHandler(this.prewittToolStripMenuItem_Click);
             // 
             // scharrToolStripMenuItem
             // 
             this.scharrToolStripMenuItem.Name = "scharrToolStripMenuItem";
-            this.scharrToolStripMenuItem.Size = new System.Drawing.Size(168, 34);
+            this.scharrToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.scharrToolStripMenuItem.Text = "Scharr";
             this.scharrToolStripMenuItem.Click += new System.EventHandler(this.scharrToolStripMenuItem_Click);
             // 
@@ -250,24 +265,39 @@ namespace PhotoFilter
             // 
             this.blurToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.classicToolStripMenuItem,
-            this.motionToolStripMenuItem});
+            this.motionToolStripMenuItem,
+            this.gaussianToolStripMenuItem});
             this.blurToolStripMenuItem.Name = "blurToolStripMenuItem";
-            this.blurToolStripMenuItem.Size = new System.Drawing.Size(231, 34);
+            this.blurToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.blurToolStripMenuItem.Text = "Blur";
             // 
             // classicToolStripMenuItem
             // 
             this.classicToolStripMenuItem.Name = "classicToolStripMenuItem";
-            this.classicToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.classicToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.classicToolStripMenuItem.Text = "Classic";
             this.classicToolStripMenuItem.Click += new System.EventHandler(this.classicToolStripMenuItem_Click);
             // 
             // motionToolStripMenuItem
             // 
             this.motionToolStripMenuItem.Name = "motionToolStripMenuItem";
-            this.motionToolStripMenuItem.Size = new System.Drawing.Size(172, 34);
+            this.motionToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.motionToolStripMenuItem.Text = "Motion";
             this.motionToolStripMenuItem.Click += new System.EventHandler(this.motionToolStripMenuItem_Click);
+            // 
+            // gaussianToolStripMenuItem
+            // 
+            this.gaussianToolStripMenuItem.Name = "gaussianToolStripMenuItem";
+            this.gaussianToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.gaussianToolStripMenuItem.Text = "Gaussian";
+            this.gaussianToolStripMenuItem.Click += new System.EventHandler(this.gaussianToolStripMenuItem_Click);
+            // 
+            // medianToolStripMenuItem
+            // 
+            this.medianToolStripMenuItem.Name = "medianToolStripMenuItem";
+            this.medianToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.medianToolStripMenuItem.Text = "Median";
+            this.medianToolStripMenuItem.Click += new System.EventHandler(this.medianToolStripMenuItem_Click);
             // 
             // mathematicalMorphologyToolStripMenuItem
             // 
@@ -275,7 +305,8 @@ namespace PhotoFilter
             this.dilationToolStripMenuItem,
             this.erosionToolStripMenuItem,
             this.openingToolStripMenuItem,
-            this.closingToolStripMenuItem});
+            this.closingToolStripMenuItem,
+            this.topHatToolStripMenuItem});
             this.mathematicalMorphologyToolStripMenuItem.Enabled = false;
             this.mathematicalMorphologyToolStripMenuItem.Name = "mathematicalMorphologyToolStripMenuItem";
             this.mathematicalMorphologyToolStripMenuItem.Size = new System.Drawing.Size(325, 34);
@@ -284,30 +315,46 @@ namespace PhotoFilter
             // dilationToolStripMenuItem
             // 
             this.dilationToolStripMenuItem.Name = "dilationToolStripMenuItem";
-            this.dilationToolStripMenuItem.Size = new System.Drawing.Size(183, 34);
+            this.dilationToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.dilationToolStripMenuItem.Text = "Dilation";
             this.dilationToolStripMenuItem.Click += new System.EventHandler(this.dilationToolStripMenuItem_Click);
             // 
             // erosionToolStripMenuItem
             // 
             this.erosionToolStripMenuItem.Name = "erosionToolStripMenuItem";
-            this.erosionToolStripMenuItem.Size = new System.Drawing.Size(183, 34);
+            this.erosionToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.erosionToolStripMenuItem.Text = "Erosion";
             this.erosionToolStripMenuItem.Click += new System.EventHandler(this.erosionToolStripMenuItem_Click);
             // 
             // openingToolStripMenuItem
             // 
             this.openingToolStripMenuItem.Name = "openingToolStripMenuItem";
-            this.openingToolStripMenuItem.Size = new System.Drawing.Size(183, 34);
+            this.openingToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.openingToolStripMenuItem.Text = "Opening";
             this.openingToolStripMenuItem.Click += new System.EventHandler(this.openingToolStripMenuItem_Click);
             // 
             // closingToolStripMenuItem
             // 
             this.closingToolStripMenuItem.Name = "closingToolStripMenuItem";
-            this.closingToolStripMenuItem.Size = new System.Drawing.Size(183, 34);
+            this.closingToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.closingToolStripMenuItem.Text = "Closing";
             this.closingToolStripMenuItem.Click += new System.EventHandler(this.closingToolStripMenuItem_Click);
+            // 
+            // topHatToolStripMenuItem
+            // 
+            this.topHatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.whiteToolStripMenuItem,
+            this.blackToolStripMenuItem});
+            this.topHatToolStripMenuItem.Name = "topHatToolStripMenuItem";
+            this.topHatToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.topHatToolStripMenuItem.Text = "Top Hat";
+            // 
+            // whiteToolStripMenuItem
+            // 
+            this.whiteToolStripMenuItem.Name = "whiteToolStripMenuItem";
+            this.whiteToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.whiteToolStripMenuItem.Text = "White";
+            this.whiteToolStripMenuItem.Click += new System.EventHandler(this.whiteToolStripMenuItem_Click);
             // 
             // progressBar1
             // 
@@ -345,42 +392,44 @@ namespace PhotoFilter
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(1265, 181);
+            this.dataGridView1.Location = new System.Drawing.Point(1280, 181);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 50;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(524, 313);
+            this.dataGridView1.Size = new System.Drawing.Size(400, 303);
             this.dataGridView1.TabIndex = 4;
             // 
             // rows
             // 
-            this.rows.Location = new System.Drawing.Point(1398, 103);
+            this.rows.Location = new System.Drawing.Point(1338, 149);
             this.rows.Name = "rows";
             this.rows.Size = new System.Drawing.Size(100, 26);
             this.rows.TabIndex = 5;
+            this.rows.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.rows.TextChanged += new System.EventHandler(this.rows_TextChanged);
             // 
             // columns
             // 
-            this.columns.Location = new System.Drawing.Point(1534, 103);
+            this.columns.Location = new System.Drawing.Point(1516, 149);
             this.columns.Name = "columns";
             this.columns.Size = new System.Drawing.Size(100, 26);
             this.columns.TabIndex = 6;
+            this.columns.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columns.TextChanged += new System.EventHandler(this.columns_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1420, 46);
+            this.label1.Location = new System.Drawing.Point(1381, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(196, 20);
+            this.label1.Size = new System.Drawing.Size(201, 20);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Define structuring element";
+            this.label1.Text = "Define Structuring Element";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1420, 80);
+            this.label2.Location = new System.Drawing.Point(1367, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 20);
             this.label2.TabIndex = 8;
@@ -389,7 +438,7 @@ namespace PhotoFilter
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1548, 80);
+            this.label3.Location = new System.Drawing.Point(1535, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 20);
             this.label3.TabIndex = 9;
@@ -397,9 +446,9 @@ namespace PhotoFilter
             // 
             // submit
             // 
-            this.submit.Location = new System.Drawing.Point(1440, 642);
+            this.submit.Location = new System.Drawing.Point(1405, 577);
             this.submit.Name = "submit";
-            this.submit.Size = new System.Drawing.Size(163, 54);
+            this.submit.Size = new System.Drawing.Size(140, 50);
             this.submit.TabIndex = 10;
             this.submit.Text = "Submit";
             this.submit.UseVisualStyleBackColor = true;
@@ -407,9 +456,9 @@ namespace PhotoFilter
             // 
             // reset
             // 
-            this.reset.Location = new System.Drawing.Point(1580, 562);
+            this.reset.Location = new System.Drawing.Point(1502, 511);
             this.reset.Name = "reset";
-            this.reset.Size = new System.Drawing.Size(151, 54);
+            this.reset.Size = new System.Drawing.Size(140, 50);
             this.reset.TabIndex = 11;
             this.reset.Text = "Reset";
             this.reset.UseVisualStyleBackColor = true;
@@ -417,33 +466,40 @@ namespace PhotoFilter
             // 
             // upload
             // 
-            this.upload.Location = new System.Drawing.Point(1338, 562);
+            this.upload.Location = new System.Drawing.Point(1316, 511);
             this.upload.Name = "upload";
-            this.upload.Size = new System.Drawing.Size(140, 55);
+            this.upload.Size = new System.Drawing.Size(140, 50);
             this.upload.TabIndex = 12;
             this.upload.Text = "Upload...";
             this.upload.UseVisualStyleBackColor = true;
             this.upload.Click += new System.EventHandler(this.upload_Click);
             // 
-            // perfectReflectionToolStripMenuItem
+            // blackToolStripMenuItem
             // 
-            this.perfectReflectionToolStripMenuItem.Name = "perfectReflectionToolStripMenuItem";
-            this.perfectReflectionToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.perfectReflectionToolStripMenuItem.Text = "Perfect Reflection";
-            this.perfectReflectionToolStripMenuItem.Click += new System.EventHandler(this.perfectReflectionToolStripMenuItem_Click);
+            this.blackToolStripMenuItem.Name = "blackToolStripMenuItem";
+            this.blackToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.blackToolStripMenuItem.Text = "Black";
+            this.blackToolStripMenuItem.Click += new System.EventHandler(this.blackToolStripMenuItem_Click);
             // 
-            // greyWorldToolStripMenuItem
+            // linearStretchToolStripMenuItem
             // 
-            this.greyWorldToolStripMenuItem.Name = "greyWorldToolStripMenuItem";
-            this.greyWorldToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.greyWorldToolStripMenuItem.Text = "Grey World";
-            this.greyWorldToolStripMenuItem.Click += new System.EventHandler(this.greyWorldToolStripMenuItem_Click);
+            this.linearStretchToolStripMenuItem.Name = "linearStretchToolStripMenuItem";
+            this.linearStretchToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.linearStretchToolStripMenuItem.Text = "Linear Stretching";
+            this.linearStretchToolStripMenuItem.Click += new System.EventHandler(this.linearStretchToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1812, 804);
+            this.ClientSize = new System.Drawing.Size(1712, 804);
             this.Controls.Add(this.upload);
             this.Controls.Add(this.reset);
             this.Controls.Add(this.submit);
@@ -459,7 +515,7 @@ namespace PhotoFilter
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(1834, 860);
+            this.MinimumSize = new System.Drawing.Size(1734, 860);
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
@@ -497,7 +553,6 @@ namespace PhotoFilter
         private System.Windows.Forms.ToolStripMenuItem blurToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem classicToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem motionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem glassEffectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wavesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rotationToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -516,6 +571,13 @@ namespace PhotoFilter
         private System.Windows.Forms.ToolStripMenuItem closingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem perfectReflectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem greyWorldToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem medianToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gaussianToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topHatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem whiteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem blackToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem linearStretchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     }
 }
 
